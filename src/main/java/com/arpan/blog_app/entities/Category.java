@@ -26,4 +26,9 @@ public class Category {
 
     @Column(name = "Description")
     private String categoyDescription;
+
+    public Category orElseThrow(Object object) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'orElseThrow'");
+    }
 }

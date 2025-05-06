@@ -1,6 +1,7 @@
 package com.arpan.blog_app.services.impl;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,11 +55,16 @@ public class CategoryServiceImpl implements CategoryService{
 
         Category cate = this.categoryRepo.findById(categoryId)
         .orElseThrow(()->new ResourceNotFoundException("Category", "categoryId", categoryId ));
+
+        return this.modelMapper.map(cate, CategoryDto.class);
         
     }
 
     @Override
     public List<CategoryDto> getAllCategory(CategoryDto categorDto) {
+
+        List<Category> cate = this.categoryRepo.findAll();
+        List<CategoryDto> catdtos = cate.stream().map((cate)->this.modelMapper.map(cate, CategoryDto.class)).collect(Collectors.toList());
        
     }
 
