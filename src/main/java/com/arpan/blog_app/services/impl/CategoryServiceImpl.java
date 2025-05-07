@@ -5,7 +5,7 @@ import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-
+import org.springframework.stereotype.Service;
 
 import com.arpan.blog_app.entities.Category;
 import com.arpan.blog_app.exceptions.ResourceNotFoundException;
@@ -13,6 +13,7 @@ import com.arpan.blog_app.payloads.CategoryDto;
 import com.arpan.blog_app.repositories.CategoryRepo;
 import com.arpan.blog_app.services.CategoryService;
 
+@Service
 public class CategoryServiceImpl implements CategoryService{
 
     @Autowired
@@ -34,7 +35,7 @@ public class CategoryServiceImpl implements CategoryService{
         Category cate = this.categoryRepo.findById(categoryId)
         .orElseThrow(()->new ResourceNotFoundException("Category", "categoryId", categoryId ));
         cate.setCategoryType(categoryDto.getCategoryType());
-        cate.setCategoyDescription(categoryDto.getCategoyDescription());
+        cate.setCategoryDescription(categoryDto.getCategoryDescription());
 
         Category updated = this.categoryRepo.save(cate);
 
@@ -64,7 +65,9 @@ public class CategoryServiceImpl implements CategoryService{
     public List<CategoryDto> getAllCategory(CategoryDto categorDto) {
 
         List<Category> cate = this.categoryRepo.findAll();
-        List<CategoryDto> catdtos = cate.stream().map((cate)->this.modelMapper.map(cate, CategoryDto.class)).collect(Collectors.toList());
+        List<CategoryDto> catdtos = cate.stream()
+        .map((cat)->this.modelMapper.map(cat, CategoryDto.class)).collect(Collectors.toList());
+        return catdtos;
        
     }
 

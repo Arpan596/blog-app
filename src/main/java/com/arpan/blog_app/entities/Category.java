@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "Catagories")
+@Table(name = "Categories")
 @NoArgsConstructor
 @Getter
 @Setter
@@ -25,7 +25,7 @@ public class Category {
     private String categoryType;
 
     @Column(name = "Description")
-    private String categoyDescription;
+    private String categoryDescription;
 
     public Category orElseThrow(Object object) {
         // TODO Auto-generated method stub

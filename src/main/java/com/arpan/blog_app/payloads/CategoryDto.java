@@ -1,5 +1,7 @@
 package com.arpan.blog_app.payloads;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -9,7 +11,12 @@ import lombok.Setter;
 @Setter
 public class CategoryDto {
 
+
     private int categoryId;
+    @NotBlank
+    @Size(min = 3)
     private String categoryType;
-    private String categoyDescription; 
+    @NotBlank
+    @Size(min = 10)
+    private String categoryDescription; 
 }
