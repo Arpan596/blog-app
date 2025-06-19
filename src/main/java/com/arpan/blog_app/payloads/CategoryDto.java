@@ -6,17 +6,16 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@NoArgsConstructor
 @Getter
 @Setter
+@NoArgsConstructor
 public class CategoryDto {
 
 
-    private int categoryId;
+    private Integer categoryId;
     @NotBlank
     @Size(min = 3)
     private String categoryType;
-    @NotBlank
     @Size(min = 10)
     private String categoryDescription; 
 }
