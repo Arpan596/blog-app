@@ -1,9 +1,6 @@
 package com.arpan.blog_app.payloads;
 
-import java.sql.Date;
-import java.util.Locale.Category;
-
-import com.arpan.blog_app.entities.User;
+import java.time.LocalDateTime;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,17 +11,19 @@ import lombok.Setter;
 @NoArgsConstructor
 public class PostDto {
 
+    private Integer postId;
+    
     private String title;
 
     private String content;
 
     private String imageName="default.img";
     
-    private Date addedDate;
+    private LocalDateTime addedDateTime;
 
-    private Category category;
+    private CategoryDto category;
 
-    private User user;
+    private UserDto user;
 
 
 }

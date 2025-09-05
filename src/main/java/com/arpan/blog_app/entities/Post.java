@@ -1,6 +1,6 @@
 package com.arpan.blog_app.entities;
 
-import java.sql.Date;
+import java.time.LocalDateTime;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -32,7 +32,7 @@ public class Post {
 
     private String imageName;
 
-    private Date addedDate;
+    private LocalDateTime addedDateTime;
 
     @ManyToOne
     private Category category;

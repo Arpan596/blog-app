@@ -11,6 +11,7 @@ import com.arpan.blog_app.entities.User;
 public interface PostRepo extends JpaRepository<Post,Integer> {
 
     List<Post> findByUser(User user);
-    List<Post> findByUser(Category category);
+    List<Post> findByCategory(Category category);
+    // List<Post> findByKeyword(String keyword);
 
 }

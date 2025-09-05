@@ -36,9 +36,10 @@ public class Category {
 
     @OneToMany(mappedBy = "category", cascade = CascadeType.ALL,fetch = FetchType.LAZY )
     private List<Post> posts = new ArrayList<>();
+    
 
-    public Category orElseThrow(Object object) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'orElseThrow'");
-    }
+    // public Category orElseThrow(Object object) {
+    //     // TODO Auto-generated method stub
+    //     throw new UnsupportedOperationException("Unimplemented method 'orElseThrow'");
+    // }
 }
